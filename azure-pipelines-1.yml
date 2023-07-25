@@ -10,6 +10,12 @@ parameters:
     values:
     - Azure Pipelines
     - ubuntu-latest
+  - name: docker-repo
+    type: string
+    default: hieub1875
+  - name: docker-image
+    type: string
+    default: azure-demo
 
 trigger:
 - main
@@ -41,6 +47,6 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'hieu-docker-registry'
-    repository: 'hieub1875/azure-demo'
+    repository: '${{ parameters.docker-repo }}/${{ parameters.docker-image }}'
     command: 'buildAndPush'
     Dockerfile: '**/AzureDockerfile'
