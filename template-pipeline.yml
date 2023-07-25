@@ -18,7 +18,7 @@ parameters:
     default: azure-demo
 
 pool:
-  vmImage: ${{ parameters.userpool }}
+  vmImage: ubuntu-latest
 
 steps:
 - task: Maven@3
